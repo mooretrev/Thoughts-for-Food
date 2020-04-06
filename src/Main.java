@@ -5,6 +5,8 @@ import com.opencsv.CSVReader;
 import index.IndexRecipes;
 
 public class Main {
+	
+	//controls whether the program index or starts the app
 
 	public static void main(String[] args) {
 		System.out.println("main start");
