@@ -1,9 +1,3 @@
-import java.io.FileReader;
-
-import com.opencsv.CSVReader;
-
-import index.IndexRecipes;
-
 public class Main {
 	
 	//controls whether the program index or starts the app
