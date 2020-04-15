@@ -4,21 +4,20 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("main start");
-		
-		if(args.length > 1) {
+		if(args.length >= 1) {
 			String action = args[0];
+			System.out.println(action);
 			
 			switch (action) {
 			case "index": {
 				System.out.println("indexing");
 				IndexMain.main();
 				System.out.println("finished");
-
-				break;
+				return;
 			}
 			case "app":{
 				ApplicationMain.main();
-				break;
+				return;
 			}
 			default:
 				throw new IllegalArgumentException("Unexpected value: " + action);
