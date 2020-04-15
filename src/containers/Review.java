@@ -1,19 +1,20 @@
 package containers;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Review implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -7171788609782942666L;
+	
 	private Integer recipeId;
-	private Date date;
+	private Integer userId;
+	private String date;
 	private Integer rating;
 	private String review;
 	
-	public Review(Integer recipeId, Date date, Integer rating, String review) {
+	public Review(Integer recipeId, String date, Integer rating, String review) {
 		super();
 		this.recipeId = recipeId;
 		this.date = date;
@@ -21,16 +22,19 @@ public class Review implements Serializable{
 		this.review = review;
 	}
 	
+	public Review() {
+	}
+
 	public Integer getRecipeId() {
 		return recipeId;
 	}
 	public void setRecipeId(Integer recipeId) {
 		this.recipeId = recipeId;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public Integer getRating() {
@@ -49,6 +53,14 @@ public class Review implements Serializable{
 	@Override
 	public String toString() {
 		return "Review [recipeId=" + recipeId + ", date=" + date + ", rating=" + rating + ", review=" + review + "]";
+	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 	
 
