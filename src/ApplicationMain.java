@@ -8,8 +8,10 @@ import gui.Window;
 public class ApplicationMain {
 	public static void main(String[] args) {
 
-		Data data = new Data();
-		data.load();
+		Data data = null;
+//		data.load();
+		
+		
 		
 		Window window = new Window("Thought for Food", data);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

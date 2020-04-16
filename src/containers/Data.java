@@ -13,7 +13,10 @@ public class Data {
 	
 	public HashMap<Integer, Recipe> recipeById; // recipe id get the recipe info
 	public HashMap<Integer, List<Review>> reviewsById; //recipe id gets a list of reiew for that recipes
-
+	public HashMap<String, List<Recipe>> recipeByIngredent;
+	public HashMap<Integer, List<Recipe>> recipeByTime;
+ 
+	
 	private FileHashMap<Integer, Recipe> fileRecipeById;
 	private String fileNameRecipeById = "RecipeById";
 	
