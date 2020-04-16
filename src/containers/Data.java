@@ -1,6 +1,5 @@
 package containers;
 
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,11 +9,7 @@ import index.IndexReviews;
 import index.threads.RecipesThread;
 import index.threads.ReviewsThread;
 
-public class Data implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1444720292418779919L;
+public class Data {
 	
 	public HashMap<Integer, Recipe> recipeById; // recipe id get the recipe info
 	public HashMap<Integer, List<Review>> reviewsById; //recipe id gets a list of reiew for that recipes
@@ -51,6 +46,7 @@ public class Data implements Serializable{
 		try {
 			recipesThread.join();
 			reviewThread.join();
+			System.out.println("data loaded");
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,5 +1,6 @@
 package index;
 
+import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -30,7 +31,8 @@ public class FileHashMap<T, T2> {
 		try
 		{
 			FileInputStream fis = new FileInputStream(name);
-			ObjectInputStream ois = new ObjectInputStream(fis);
+			BufferedInputStream bis = new BufferedInputStream(fis);
+			ObjectInputStream ois = new ObjectInputStream(bis);
 			map = (HashMap) ois.readObject();
 			ois.close();
 			fis.close();
