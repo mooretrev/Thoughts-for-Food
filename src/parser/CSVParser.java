@@ -68,6 +68,8 @@ public class CSVParser {
 					}
 					break;
 				}
+				case '\r':
+					break;
 				case '\n':{
 					if(openBracket || openQuote) {
 						col += _char;

@@ -32,7 +32,7 @@ public class Data {
 
 		
 		IndexReviewsThread reviewsThread = new IndexReviewsThread();
-		reviewsThread.start();
+//		reviewsThread.start();
 		System.out.println("reviews thread started");
 
 		

@@ -20,26 +20,28 @@ public class IndexRecipes {
 	public HashMap<Integer, Recipe> index() {
 		HashMap<Integer, Recipe> map = new HashMap<Integer, Recipe>();
 
+		ArrayList<String> data = null; 
 
 		try {
 			FileReader filereader = new FileReader(filePath); 
 			CSVParser csvReader = new CSVParser(filereader); 
-			ArrayList<String> data; 
 
 			csvReader.readLine(); // skip the title line
 			while ((data = csvReader.readLine()) != null) { 
 				Recipe recipe = new Recipe();
 
-				recipe.setId(Integer.parseInt(data.get(C.id.ordinal())));
-				recipe.setName(data.get(C.name.ordinal()));
-				recipe.setCookTime(Integer.parseInt(data.get(C.minutes.ordinal())));
-				recipe.setTags(splitArray(data.get(C.tags.ordinal())));
-				recipe.setNumInstructions(Integer.parseInt(data.get(C.numSteps.ordinal())));
-				recipe.setInstructions(splitArray(data.get(C.steps.ordinal())));
-				recipe.setDescription(data.get(C.description.ordinal()));
-				recipe.setNumIngredients(Integer.parseInt(data.get(C.numIngredents.ordinal())));
-				recipe.setIngredients(splitArray(data.get(C.ingredents.ordinal())));
-				map.put(recipe.getId(), recipe);
+				if(data.size() == numRows) {
+					recipe.setId(Integer.parseInt(data.get(C.id.ordinal())));
+					recipe.setName(data.get(C.name.ordinal()));
+					recipe.setCookTime(Integer.parseInt(data.get(C.minutes.ordinal())));
+					recipe.setTags(splitArray(data.get(C.tags.ordinal())));
+					recipe.setNumInstructions(Integer.parseInt(data.get(C.numSteps.ordinal())));
+					recipe.setInstructions(splitArray(data.get(C.steps.ordinal())));
+					recipe.setDescription(data.get(C.description.ordinal()));
+					recipe.setNumIngredients(Integer.parseInt(data.get(C.numIngredents.ordinal())));
+					recipe.setIngredients(splitArray(data.get(C.ingredents.ordinal())));
+					map.put(recipe.getId(), recipe);
+				}
 			} 
 			csvReader.close();
 		} 

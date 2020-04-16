@@ -37,6 +37,8 @@ public class IndexReviews {
 					review.setReview(data.get(C.reivew.ordinal()));
 					review.setUserId(Integer.parseInt(data.get(C.user_id.ordinal())));
 					review.setDate(data.get(C.date.ordinal()));
+					
+					System.out.println(review.getReview());
 	
 					if(map.containsKey(review.getRecipeId())) {
 						List<Review> list = map.get(review.getRecipeId());
