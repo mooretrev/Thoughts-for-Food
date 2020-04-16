@@ -43,7 +43,6 @@ public class CSVParser {
 		try {
 			while((ch=file.read()) != -1) {
 				_char = (char) ch;
-				System.out.print(_char);
 				
 				switch (_char) {
 				case '\"': {
@@ -84,6 +83,7 @@ public class CSVParser {
 					break;
 				}
 			}
+			line.add(col);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

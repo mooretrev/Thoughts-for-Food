@@ -39,7 +39,6 @@ public class IndexRecipes {
 				recipe.setDescription(data.get(C.description.ordinal()));
 				recipe.setNumIngredients(Integer.parseInt(data.get(C.numIngredents.ordinal())));
 				recipe.setIngredients(splitArray(data.get(C.ingredents.ordinal())));
-//				System.out.println(recipe);
 				map.put(recipe.getId(), recipe);
 			} 
 			csvReader.close();

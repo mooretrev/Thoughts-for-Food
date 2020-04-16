@@ -54,14 +54,7 @@ public class IndexReviews {
 			csvReader.close();
 		} 
 		catch (Exception e) { 
-//			e.printStackTrace();
-			System.out.println("start of error");
-			System.out.println("length of data is: " + data.size());
-			for(String i : data) {
-				System.out.println(i);
-			}
-			System.out.println("end of error");
-
+			e.printStackTrace();
 		} 
 		return map;
 	}	

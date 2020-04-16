@@ -87,7 +87,7 @@ class TestCSVParser {
 			
 			ArrayList<String> row4 = new ArrayList<String>();
 			row4.add("test");
-			row4.add("here,\nhere");
+			row4.add("here, \nhere");
 			row4.add("134");
 			
 			ArrayList<String> res4 = csvParser.readLine();
