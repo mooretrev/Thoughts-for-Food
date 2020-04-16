@@ -29,8 +29,6 @@ class TestCSVParser {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 	}
 	
 	@Test
