@@ -16,7 +16,7 @@ public class Main {
 				return;
 			}
 			case "app":{
-				ApplicationMain.main();
+				ApplicationMain.main(null);
 				return;
 			}
 			default:
@@ -24,7 +24,7 @@ public class Main {
 			}
 			
 		}else {
-			ApplicationMain.main();
+			ApplicationMain.main(null);
 
 		}
 		
