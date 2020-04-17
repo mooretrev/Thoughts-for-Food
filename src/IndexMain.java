@@ -1,5 +1,4 @@
 import containers.Data;
-import index.IndexRecipes;
 
 public class IndexMain {
 	

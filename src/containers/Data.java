@@ -3,9 +3,8 @@ package containers;
 import java.util.HashMap;
 import java.util.List;
 
-import index.FileHashMap;
-import index.IndexRecipes;
-import index.IndexReviews;
+import index.threads.IndexRecipesThread;
+import index.threads.IndexReviewsThread;
 import index.threads.RecipesThread;
 import index.threads.ReviewsThread;
 
@@ -15,28 +14,27 @@ public class Data {
 	public HashMap<Integer, List<Review>> reviewsById; //recipe id gets a list of reiew for that recipes
 	public HashMap<String, List<Recipe>> recipeByIngredent;
 	public HashMap<Integer, List<Recipe>> recipeByTime;
- 
-	
-	private FileHashMap<Integer, Recipe> fileRecipeById;
-	private String fileNameRecipeById = "RecipeById";
-	
-	private FileHashMap<Integer, List<Review>> fileReviewsById;
-	private String fileNameReviewsById = "ReviewById";
-	
-	public Data() {
-		fileRecipeById = new FileHashMap<Integer, Recipe>();
-		fileReviewsById = new FileHashMap<Integer, List<Review>>();
-	}
 	
 	public void index() {
-		IndexRecipes indexRecipes = new IndexRecipes();
-		recipeById = indexRecipes.index();
-		fileRecipeById.save(recipeById, fileNameRecipeById);
+		IndexRecipesThread recipesThread = new IndexRecipesThread();
+		recipesThread.start();
+		System.out.println("recipes thread started");
+
 		
-		IndexReviews indexReviews = new IndexReviews();
-		reviewsById = indexReviews.index();
-		fileReviewsById.save(reviewsById, fileNameReviewsById);
+		IndexReviewsThread reviewsThread = new IndexReviewsThread();
+		reviewsThread.start();
+		System.out.println("reviews thread started");
+
 		
+		try {
+			recipesThread.join();
+			System.out.println("recipes thread finished");
+			reviewsThread.join();
+			System.out.println("reviews thread finished");
+
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void load() {

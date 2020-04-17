@@ -7,7 +7,6 @@ import java.util.List;
 
 import parser.CSVParser;
 
-import containers.Recipe;
 import containers.Review;
 
 public class IndexReviews {

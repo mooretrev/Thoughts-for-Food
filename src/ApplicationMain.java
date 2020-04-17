@@ -1,5 +1,3 @@
-import java.awt.Frame;
-
 import javax.swing.JFrame;
 
 import containers.Data;
@@ -8,8 +6,10 @@ import gui.Window;
 public class ApplicationMain {
 	public static void main(String[] args) {
 
-		Data data = null;
-//		data.load();
+		Data data = new Data();
+		data.load();
+		
+		System.out.println(data.recipeById.get(298509));
 		
 		
 		

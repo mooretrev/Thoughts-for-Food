@@ -1,8 +1,5 @@
 package parser;
 
-import static org.junit.Assert.assertArrayEquals;
-
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -15,23 +12,7 @@ public class CSVParser {
 	public CSVParser(FileReader file) {
 		this.file = new BufferedReader(file);
 	}
-
-//	public ArrayList<ArrayList<String>> readFile(){
-//		ArrayList<ArrayList<String>> parsedFile = new ArrayList<ArrayList<String>>();
-//		int ch = 0;
-//		
-//		try {
-//			while((ch=file.read()) != -1) {
-//				parsedFile.add(readLine());
-//			}
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//		return parsedFile;		
-//	}
-//	
+	
 	public ArrayList<String> readLine(){
 		Boolean openQuote = false;
 		Boolean openBracket = false;
@@ -89,7 +70,6 @@ public class CSVParser {
 			}
 			line.add(col);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -102,7 +82,6 @@ public class CSVParser {
 		try {
 			this.file.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
