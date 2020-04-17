@@ -1,12 +1,10 @@
 package index;
 
-import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 
-import com.opencsv.CSVReader;
+import parser.CSVParser;
 
 import containers.Recipe;
 
@@ -20,29 +18,37 @@ public class IndexRecipes {
 	public HashMap<Integer, Recipe> index() {
 		HashMap<Integer, Recipe> map = new HashMap<Integer, Recipe>();
 
+		ArrayList<String> data = null; 
 
 		try {
 			FileReader filereader = new FileReader(filePath); 
-			CSVReader csvReader = new CSVReader(filereader); 
-			String[] data; 
+			CSVParser csvReader = new CSVParser(filereader); 
 
-			csvReader.readNext(); // skip the title line
-			while ((data = csvReader.readNext()) != null) { 
+			csvReader.readLine(); // skip the title line
+			while ((data = csvReader.readLine()) != null) { 
 				Recipe recipe = new Recipe();
 
-				recipe.setId(Integer.parseInt(data[C.id.ordinal()]));
-				recipe.setName(data[C.name.ordinal()]);
-				recipe.setCookTime(Integer.parseInt(data[C.minutes.ordinal()]));
-				recipe.setTags(splitArray(data[C.tags.ordinal()]));
-				recipe.setNumInstructions(Integer.parseInt(data[C.numSteps.ordinal()]));
-				recipe.setInstructions(splitArray(data[C.steps.ordinal()]));
-				recipe.setDescription(data[C.description.ordinal()]);
-				recipe.setNumIngredients(Integer.parseInt(data[C.numIngredents.ordinal()]));
-				recipe.setIngredients(splitArray(data[C.ingredents.ordinal()]));
-//				System.out.println(recipe);
-				map.put(recipe.getId(), recipe);
+				if(data.size() == numRows) {
+					recipe.setId(Integer.parseInt(data.get(C.id.ordinal())));
+					recipe.setName(data.get(C.name.ordinal()));
+					recipe.setCookTime(Integer.parseInt(data.get(C.minutes.ordinal())));
+					recipe.setTags(splitArray(data.get(C.tags.ordinal())));
+					recipe.setNumInstructions(Integer.parseInt(data.get(C.numSteps.ordinal())));
+					recipe.setInstructions(splitArray(data.get(C.steps.ordinal())));
+					recipe.setDescription(data.get(C.description.ordinal()));
+					recipe.setNumIngredients(Integer.parseInt(data.get(C.numIngredents.ordinal())));
+					recipe.setIngredients(splitArray(data.get(C.ingredents.ordinal())));
+					map.put(recipe.getId(), recipe);
+					
+					System.out.println("R" + recipe.getId());
+					
+					if(recipe.getId() == 298509) {
+						csvReader.close();
+						System.out.println("reciped done indexing");
+						return map;
+					}
+				}
 			} 
-			csvReader.close();
 		} 
 		catch (Exception e) { 
 			e.printStackTrace(); 

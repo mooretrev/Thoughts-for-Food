@@ -1,7 +1,6 @@
 public class Main {
 	
 	//controls whether the program index or starts the app
-
 	public static void main(String[] args) {
 		System.out.println("main start");
 		if(args.length >= 1) {
@@ -11,7 +10,7 @@ public class Main {
 			switch (action) {
 			case "index": {
 				System.out.println("indexing");
-				IndexMain.main();
+				IndexMain.main(null);
 				System.out.println("finished");
 				return;
 			}

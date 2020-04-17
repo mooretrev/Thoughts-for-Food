@@ -1,5 +1,6 @@
 package index;
 
+import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -24,13 +25,15 @@ public class FileHashMap<T, T2> {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public HashMap<T, T2> load(String name) {
 		HashMap<T, T2> map = null;
 		name = "index/" + name + ".ser";
 		try
 		{
 			FileInputStream fis = new FileInputStream(name);
-			ObjectInputStream ois = new ObjectInputStream(fis);
+			BufferedInputStream bis = new BufferedInputStream(fis);
+			ObjectInputStream ois = new ObjectInputStream(bis);
 			map = (HashMap) ois.readObject();
 			ois.close();
 			fis.close();
