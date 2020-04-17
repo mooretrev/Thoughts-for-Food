@@ -18,6 +18,15 @@ public class Recipe implements Serializable{
 	private int numInstructions;
 	private List<String> instructions;
 	
+	public Boolean hasIngredent(String ingred) {
+		for(String i: ingredients) {
+			if(i.equals(ingred)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -78,7 +87,5 @@ public class Recipe implements Serializable{
 				+ ", tags=" + tags + ", numIngredients=" + numIngredients + ", ingredients=" + ingredients
 				+ ", numInstructions=" + numInstructions + ", instructions=" + instructions + "]";
 	}
-	
-	
 
 }

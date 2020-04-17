@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class FileHashMap<T, T2> {
 
 	public void save(HashMap<T, T2> map, String name) {
-		name = "index/" + name + ".ser";
+		name = "index_data/" + name + ".ser";
 		try
 		{
 			FileOutputStream fos = new FileOutputStream(name);
