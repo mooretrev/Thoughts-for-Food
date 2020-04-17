@@ -2,16 +2,18 @@ package parser;
 
 import static org.junit.Assert.assertArrayEquals;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class CSVParser {
 	
-	private FileReader file;
+	private BufferedReader file;
 	
 	public CSVParser(FileReader file) {
-		this.file = file;
+		this.file = new BufferedReader(file);
 	}
 
 //	public ArrayList<ArrayList<String>> readFile(){

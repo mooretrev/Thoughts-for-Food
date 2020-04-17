@@ -20,6 +20,7 @@ public class IndexReviews {
 
 		HashMap<Integer, List<Review>>  map = new HashMap<Integer, List<Review>>();
 		ArrayList<String> data = null; 
+		Integer endCount = 0;
 
 
 		try {
@@ -38,8 +39,17 @@ public class IndexReviews {
 					review.setUserId(Integer.parseInt(data.get(C.user_id.ordinal())));
 					review.setDate(data.get(C.date.ordinal()));
 					
-					System.out.println(review.getReview());
-	
+					if(review.getRecipeId() == 78003) {
+						++endCount;
+					}
+					if(endCount >= 2) {
+						csvReader.close();
+						System.out.println("review indexing done");
+						return map;
+					}
+					
+					System.out.println("V"+review.getRecipeId());
+						
 					if(map.containsKey(review.getRecipeId())) {
 						List<Review> list = map.get(review.getRecipeId());
 						list.add(review);
@@ -53,7 +63,6 @@ public class IndexReviews {
 
 
 			} 
-			csvReader.close();
 		} 
 		catch (Exception e) { 
 			e.printStackTrace();
