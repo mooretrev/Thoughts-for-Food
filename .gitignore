@@ -5,3 +5,4 @@ bin/
 .settings/
 data/
 index_data/
+Build/

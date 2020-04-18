@@ -17,10 +17,8 @@ public class IngredientSearch extends AbstractSearch {
 	@Override
 	public List<Recipe> search(String query) {
 		//get the hashmap of ingredients->recipes
-		IndexRecipes r = new IndexRecipes();
-		IndexIngredents i = new IndexIngredents();;
-		HashMap<Integer,Recipe> recipesByID = r.index();
-		HashMap<String, List<Recipe>> recipesByIngredient = i.index(recipesByID);
+		
+		HashMap<String, List<Recipe>> recipesByIngredient = data.recipeByIngredent;
 
 		List<List<Recipe>> allRecipes = new Vector();
 		String[] queryList;
@@ -30,7 +28,7 @@ public class IngredientSearch extends AbstractSearch {
 			allRecipes.add(recipesByIngredient.get(ingredient));
 		}
 		//find union of all lists in allRecipes
-		Map<Recipe, Integer> recipeFreqs = new Map<>();
+		Map<Recipe, Integer> recipeFreqs = new HashMap<Recipe, Integer>();
 		for(List<Recipe> list : allRecipes){
 			for(Recipe recipe : list){
 				if(recipeFreqs.containsKey(recipe))

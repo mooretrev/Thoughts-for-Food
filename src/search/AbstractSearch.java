@@ -7,7 +7,7 @@ import containers.Recipe;
 
 public abstract class AbstractSearch {
 	
-	private Data data;
+	protected Data data;
 	
 	public AbstractSearch(Data data) {
 		this.data = data;
