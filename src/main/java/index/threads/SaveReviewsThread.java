@@ -6,7 +6,7 @@ import containers.Review;
 import index.FileHashMap;
 import index.IndexReviews;
 
-public class IndexReviewsThread extends Thread{
+public class SaveReviewsThread extends Thread{
 	
 	private FileHashMap<Integer, List<Review>> fileReviewsById = new FileHashMap<Integer, List<Review>>();
 	private String fileNameReviewsById = "ReviewById";

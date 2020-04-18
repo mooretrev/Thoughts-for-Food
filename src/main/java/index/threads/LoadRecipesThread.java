@@ -5,7 +5,7 @@ import java.util.HashMap;
 import containers.Recipe;
 import index.FileHashMap;
 
-public class RecipesThread extends Thread{
+public class LoadRecipesThread extends Thread{
 	
 	public HashMap<Integer, Recipe> recipeById;
 	private FileHashMap<Integer, Recipe> fileRecipeById = new FileHashMap<Integer, Recipe>();
