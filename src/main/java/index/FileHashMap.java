@@ -28,7 +28,7 @@ public class FileHashMap<T, T2> {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public HashMap<T, T2> load(String name) {
 		HashMap<T, T2> map = null;
-		name = "index/" + name + ".ser";
+		name = "index_data/" + name + ".ser";
 		try
 		{
 			FileInputStream fis = new FileInputStream(name);

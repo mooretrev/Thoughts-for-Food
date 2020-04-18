@@ -1,3 +1,5 @@
+package tff;
+
 import javax.swing.JFrame;
 
 import containers.Data;

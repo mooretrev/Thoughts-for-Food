@@ -25,13 +25,6 @@ class TestFileHashMap {
 		
 		assertEquals(ans, res);
 		
-		IndexRecipes index = new IndexRecipes();
-		
-		FileHashMap<Integer, Recipe> file2 = new FileHashMap<Integer, Recipe>();
-
-		HashMap<Integer, Recipe> ans2 = index.index();
-		file2.save(ans2, "recipeById");
-		HashMap<Integer, Recipe> res2 = file2.load("recipeById");
 	}
 	
 
