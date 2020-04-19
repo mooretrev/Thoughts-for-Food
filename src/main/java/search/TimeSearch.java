@@ -1,6 +1,7 @@
 package search;
 
 import java.util.List;
+import java.util.Set;
 
 import containers.Data;
 import containers.Recipe;
@@ -13,8 +14,16 @@ public class TimeSearch extends AbstractSearch {
 
 	@Override
 	public List<Recipe> search(String query) {
-		// TODO Auto-generated method stub
-		return null;
+		Integer time = null;
+		try {
+			time = Integer.parseInt(query);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		Set<Integer> keys = data.recipeByTime.keySet();
+
+		return data.recipeByTime.get(time);
 	}
 
 }

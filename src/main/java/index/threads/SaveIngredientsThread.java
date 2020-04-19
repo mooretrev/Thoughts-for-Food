@@ -7,6 +7,7 @@ import containers.Data;
 import containers.Recipe;
 import index.FileHashMap;
 import index.IndexIngredents;
+import index.IndexTime;
 
 public class SaveIngredientsThread extends Thread{
 	private FileHashMap<String, List<Recipe>>  fileIngredients = new FileHashMap<String, List<Recipe>> ();
@@ -23,6 +24,4 @@ public class SaveIngredientsThread extends Thread{
 		IndexIngredents indexIngredents = new IndexIngredents(recipeById);
 		fileIngredients.save(indexIngredents.index(), fileNameReviewsById);
 	}
-
-
 }
