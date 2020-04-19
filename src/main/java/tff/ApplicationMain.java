@@ -11,12 +11,7 @@ public class ApplicationMain {
 	public static void main(String[] args) {
 
 		Data data = new Data();
-		data.load();
-		
-		TimeSearch time = new TimeSearch(data);
-		
-		System.out.println(time.search("30"));
-		
+		data.load();		
 		
 		Window window = new Window("Thought for Food", data);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
