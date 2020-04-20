@@ -1,17 +1,31 @@
 package tff;
-
 import javax.swing.JFrame;
 
 import containers.Data;
 import gui.Window;
-import search.IngredientSearch;
-import search.TimeSearch;
+import gui.loading.SplashScreen;
+import index.threads.LoadDataThread;
 
 public class ApplicationMain {
 	public static void main(String[] args) {
+		Data data;
+		LoadDataThread loadDataThread = new LoadDataThread();
+		loadDataThread.start();
+		
+		SplashScreen splashScreen = new SplashScreen();
 
-		Data data = new Data();
-		data.load();		
+		try {
+			loadDataThread.join();
+			data = loadDataThread.getData();
+			System.out.println("hello");
+			splashScreen.dispose();
+		} catch (Exception e) {
+			// TODO: handle exception
+			return;
+		}
+				
+		
+		
 		
 		Window window = new Window("Thought for Food", data);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

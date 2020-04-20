@@ -88,7 +88,7 @@ public class Data{
 	public void load() {
 		LoadRecipesThread recipesThread = new LoadRecipesThread();
 		recipesThread.start();
-//		
+		
 		LoadReviewsThread reviewThread = new LoadReviewsThread();
 		reviewThread.start();
 		
