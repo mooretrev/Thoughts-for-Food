@@ -1,11 +1,6 @@
 package search;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Vector;
+import java.util.*;
 
 import containers.Data;
 import containers.Recipe;
@@ -19,14 +14,20 @@ public class NameSearch extends AbstractSearch {
 
 	@Override
 	public Results search(String query) {
-		HashMap<Integer, Recipe> recipesByName = data.recipeById;
+		System.out.println("IN SEARCH");
 		List<Recipe> finalRecipes = new Vector<>();
+		
 
-		for(Integer id : recipesByName.keySet()){
-			if(query == recipesByName.get(id).getName()){
-				finalRecipes.add(recipesByName.get(id));
+		Collection<Recipe> recipes = data.recipeById.values();
+		Iterator<Recipe> itr = recipes.iterator();
+		System.out.println("after vector");
+		System.out.println("Traversing over Set using Iterator"); 
+		while(itr.hasNext()){ 
+			if(query == itr.next().getName()){
+				finalRecipes.add(itr.next());
 			}
 		}
+
 		return new Results(finalRecipes);
 	}
 
