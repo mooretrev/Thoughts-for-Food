@@ -11,7 +11,7 @@ public class Main {
 			switch (action) {
 			case "index": {
 				System.out.println("indexing");
-				IndexMain.main();
+				IndexMain.main("test");
 				System.out.println("finished");
 				return;
 			}
