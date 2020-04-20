@@ -1,9 +1,8 @@
 package search;
 
-import java.util.List;
 
 import containers.Data;
-import containers.Recipe;
+import results.Results;
 
 public abstract class AbstractSearch {
 	
@@ -13,6 +12,6 @@ public abstract class AbstractSearch {
 		this.data = data;
 	}
 	
-	public abstract List<Recipe> search(String query);
+	public abstract Results search(String query);
 
 }

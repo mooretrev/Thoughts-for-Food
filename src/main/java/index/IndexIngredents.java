@@ -1,8 +1,6 @@
 package index;
 
 import java.util.ArrayList;
-import set.SetUnion;
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
