@@ -1,13 +1,12 @@
+
 package index.threads;
 
 import java.util.HashMap;
 import java.util.List;
 
-import containers.Data;
 import containers.Recipe;
 import index.FileHashMap;
 import index.IndexIngredents;
-import index.IndexTime;
 
 public class SaveIngredientsThread extends Thread{
 	private FileHashMap<String, List<Recipe>>  fileIngredients = new FileHashMap<String, List<Recipe>> ();

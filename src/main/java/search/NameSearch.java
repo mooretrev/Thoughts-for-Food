@@ -1,9 +1,7 @@
 package search;
 
-import java.util.List;
-
 import containers.Data;
-import containers.Recipe;
+import results.Results;
 
 public class NameSearch extends AbstractSearch {
 
@@ -12,7 +10,7 @@ public class NameSearch extends AbstractSearch {
 	}
 
 	@Override
-	public List<Recipe> search(String query) {
+	public Results search(String query) {
 		// TODO Auto-generated method stub
 		return null;
 	}

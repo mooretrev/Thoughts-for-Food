@@ -1,13 +1,15 @@
 package containers;
 
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.List;
 
-public class Recipe implements Serializable{
+public class Recipe implements Serializable, Comparator<Recipe>{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -5766345690757889424L;
+	
 	private int id;
 	private String name;
 	private String description;
@@ -86,6 +88,11 @@ public class Recipe implements Serializable{
 		return "Recipe [id=" + id + ", name=" + name + ", description=" + description + ", cookTime=" + cookTime
 				+ ", tags=" + tags + ", numIngredients=" + numIngredients + ", ingredients=" + ingredients
 				+ ", numInstructions=" + numInstructions + ", instructions=" + instructions + "]";
+	}
+
+	@Override
+	public int compare(Recipe o1, Recipe o2) {
+		return o1.name.compareTo(o2.name);
 	}
 
 }

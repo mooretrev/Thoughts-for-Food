@@ -1,11 +1,15 @@
 package search;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
 
 import containers.Data;
 import containers.Recipe;
-import index.IndexIngredents;
-import index.IndexRecipes;
+import results.Results;
 
 public class IngredientSearch extends AbstractSearch {
 
@@ -15,7 +19,7 @@ public class IngredientSearch extends AbstractSearch {
 
 	// ingredients in query separated by commas
 	@Override
-	public List<Recipe> search(String query) {
+	public Results search(String query) {
 		//get the hashmap of ingredients->recipes
 		
 		HashMap<String, List<Recipe>> recipesByIngredient = data.recipeByIngredent;
@@ -54,7 +58,7 @@ public class IngredientSearch extends AbstractSearch {
 			finalRecipes.add(rec);
 		}
 
-		return finalRecipes;
+		return new Results(finalRecipes);
 	}
 
 
