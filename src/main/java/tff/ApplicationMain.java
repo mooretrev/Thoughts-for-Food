@@ -15,7 +15,7 @@ public class ApplicationMain {
 		Data data = new Data();
 		data.load();		
 		NameSearch n = new NameSearch(data);
-		Results r = n.search("chile rellenos");
+		Results r = n.search("microwave chili");
 		System.out.println(r.getRecipes());
 		// IngredientSearch s = new IngredientSearch(data);
 		// s.search("butterscotch chips,chinese noodles,salted peanuts");
