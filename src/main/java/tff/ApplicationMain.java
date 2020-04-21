@@ -1,4 +1,5 @@
 package tff;
+
 import javax.swing.JFrame;
 
 import containers.Data;
@@ -11,26 +12,22 @@ public class ApplicationMain {
 		Data data;
 		LoadDataThread loadDataThread = new LoadDataThread();
 		loadDataThread.start();
-		
+
 		SplashScreen splashScreen = new SplashScreen();
 
 		try {
 			loadDataThread.join();
 			data = loadDataThread.getData();
-			System.out.println("hello");
 			splashScreen.dispose();
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 			return;
 		}
-				
-		
-		
-		
+
 		Window window = new Window("Thought for Food", data);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setVisible(true);
-		
+
 	}
 
 }
