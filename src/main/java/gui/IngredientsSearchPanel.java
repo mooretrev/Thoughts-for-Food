@@ -1,5 +1,7 @@
 package gui;
 
-public class IngredientsSearchPanel {
+import javax.swing.JPanel;
+
+public class IngredientsSearchPanel extends JPanel {
 
 }

@@ -1,5 +1,7 @@
 package gui;
 
-public class TimeSearchPanel {
+import javax.swing.JPanel;
+
+public class TimeSearchPanel extends JPanel {
 
 }

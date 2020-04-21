@@ -1,5 +1,7 @@
 package gui;
 
-public class NameSearchPanel {
+import javax.swing.JPanel;
 
+public class NameSearchPanel extends JPanel {
+    
 }

@@ -97,8 +97,7 @@ public class Window extends JFrame {
 				.addComponent(instrLabel1)
 				.addComponent(instrLabel2)
                 .addComponent(continueButton)
-            )
-        );
+            );
 
         layout.setVerticalGroup(layout.createSequentialGroup()
             .addGap(100)
