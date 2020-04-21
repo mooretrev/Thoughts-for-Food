@@ -3,5 +3,8 @@ bin/
 .classpath
 .project
 .settings/
-index/
 data/
+index_data/
+Build/
+/.gradle/
+/build/
