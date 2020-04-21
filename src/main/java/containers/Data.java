@@ -88,28 +88,28 @@ public class Data{
 	public void load() {
 		LoadRecipesThread recipesThread = new LoadRecipesThread();
 		recipesThread.start();
-//		
-//		LoadReviewsThread reviewThread = new LoadReviewsThread();
-//		reviewThread.start();
+		
+		LoadReviewsThread reviewThread = new LoadReviewsThread();
+		reviewThread.start();
 		
 		LoadIngredientsThread ingredientsThread = new LoadIngredientsThread();
 		ingredientsThread.start();
 		
-//		LoadTimeThread timeThread = new LoadTimeThread();
-//		timeThread.start();
+		LoadTimeThread timeThread = new LoadTimeThread();
+		timeThread.start();
 		
 		try {
 			recipesThread.join();
-//			reviewThread.join();
+			reviewThread.join();
 			ingredientsThread.join();
-//			timeThread.join();
+			timeThread.join();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		recipeById = recipesThread.getRecipeById();
-//		reviewsById = reviewThread.getReviewsById();
+		reviewsById = reviewThread.getReviewsById();
 		recipeByIngredent = ingredientsThread.getRecipeByIngredient();	
-//		recipeByTime = timeThread.getRecipeByTime();
+		recipeByTime = timeThread.getRecipeByTime();
 		System.out.println("data loaded");
 
 	
