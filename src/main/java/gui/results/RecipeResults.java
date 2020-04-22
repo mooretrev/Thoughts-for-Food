@@ -58,7 +58,7 @@ public class RecipeResults extends JPanel {
 	void addTableComponets() {
 		Vector colName = new Vector(Arrays.asList("Name", "Cooktime", "# of Ingredients", "# of Instruction"));
 		Vector rowData = new Vector();
-
+		
 		int size = 10;
 		if(!(recipes.size() > 10)) {
 			size = recipes.size();
@@ -82,8 +82,11 @@ public class RecipeResults extends JPanel {
 		table.setFillsViewportHeight(true);
 
 		table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+			RecipesInfo recipesInfo = null;
+
 			public void valueChanged(ListSelectionEvent event) {
 				if(event.getValueIsAdjusting()) {
+					
 					Recipe recipe = recipes.get(table.getSelectedRow());
 					List<Review> reviews;
 					try {
@@ -91,9 +94,13 @@ public class RecipeResults extends JPanel {
 					} catch (Exception e) {
 						reviews = null;
 					}
+					
+					if(recipesInfo != null) {
+						recipesInfo.dispose();
+					}
 
 
-					new RecipesInfo(recipe, reviews);
+					recipesInfo = new RecipesInfo(recipe, reviews);
 				}
 			}
 		});
