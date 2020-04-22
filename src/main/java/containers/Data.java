@@ -60,6 +60,18 @@ public class Data{
 		}
 	}
 	
+	public void indexRecipes() {
+		SaveRecipesThread thread = new SaveRecipesThread();
+		thread.start();
+		
+		try {
+			thread.join();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+	}
+	
 	public void indexTime() {
 			SaveRecipesThread recipesThread = new SaveRecipesThread();
 			recipesThread.start();
@@ -113,6 +125,31 @@ public class Data{
 		System.out.println("data loaded");
 
 	
+	}
+	
+	public void loadRecipeById() {
+		LoadRecipesThread recipesThread = new LoadRecipesThread();
+		recipesThread.start();
+		
+		try {
+			recipesThread.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		recipeById = recipesThread.getRecipeById();
+
+	}
+	
+	public void loadReviews() {
+		LoadReviewsThread thread = new LoadReviewsThread();
+		thread.start();
+		try {
+			thread.join();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		reviewsById = thread.getReviewsById();
 	}
 	
 

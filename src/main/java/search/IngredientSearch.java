@@ -52,7 +52,6 @@ public class IngredientSearch extends AbstractSearch {
 			.sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())) 
 			.forEachOrdered(x -> sortedRecipes.put(x.getKey(), x.getValue()));
 
-		System.out.println("Sorted Recipes: " + sortedRecipes);
 		List<Recipe> finalRecipes = new Vector<>();
 		for(Recipe rec : sortedRecipes.keySet()){
 			finalRecipes.add(rec);
