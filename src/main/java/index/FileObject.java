@@ -8,9 +8,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
-public class FileHashMap<T, T2> {
+public class FileObject{
 
-	public void save(HashMap<T, T2> map, String name) {
+	public void save(Object map, String name) {
 		name = "index_data/" + name + ".ser";
 		try
 		{
@@ -26,15 +26,15 @@ public class FileHashMap<T, T2> {
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public HashMap<T, T2> load(String name) {
-		HashMap<T, T2> map = null;
+	public Object load(String name) {
+		Object map = null;
 		name = "index_data/" + name + ".ser";
 		try
 		{
 			FileInputStream fis = new FileInputStream(name);
 			BufferedInputStream bis = new BufferedInputStream(fis);
 			ObjectInputStream ois = new ObjectInputStream(bis);
-			map = (HashMap) ois.readObject();
+			map = ois.readObject();
 			ois.close();
 			fis.close();
 		}catch(IOException ioe)

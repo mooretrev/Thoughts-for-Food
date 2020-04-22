@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 
 import containers.Recipe;
-import index.FileHashMap;
+import index.FileObject;
 import index.IndexTime;
 
 public class SaveTimeThread extends Thread {
-	private FileHashMap<Integer, List<Recipe>>  fileTime = new FileHashMap<Integer, List<Recipe>> ();
+	private FileObject  fileTime = new FileObject ();
 	private String fileNameReviewsById = "RecipeByTime";
 	private HashMap<Integer, Recipe> recipeById;
 		

@@ -4,19 +4,19 @@ import java.util.HashMap;
 import java.util.List;
 
 import containers.Recipe;
-import index.FileHashMap;
+import index.FileObject;
 
 public class LoadIngredientsThread extends Thread{
 	
 	public HashMap<String, List<Recipe>> recipeByIngredient;
-	private FileHashMap<String, List<Recipe>>  fileIngredients = new FileHashMap<String, List<Recipe>> ();
+	private FileObject fileIngredients = new FileObject();
 	private String fileNameReviewsById = "RecipesByIngredients";
 	
 	
 	@Override
 	public void run() {
 		System.out.println("ingredient thread");
-		recipeByIngredient = fileIngredients.load(fileNameReviewsById);
+		recipeByIngredient = (HashMap<String, List<Recipe>>) fileIngredients.load(fileNameReviewsById);
 
 	}
 

@@ -4,18 +4,18 @@ import java.util.HashMap;
 import java.util.List;
 
 import containers.Review;
-import index.FileHashMap;
+import index.FileObject;
 
 public class LoadReviewsThread extends Thread {
 
 	public HashMap<Integer, List<Review>> reviewsById;
-	private FileHashMap<Integer, List<Review>> fileReviewsById = new FileHashMap<Integer, List<Review>>();
+	private FileObject fileReviewsById = new FileObject();
 	private String fileNameReviewsById = "ReviewById";
 
 	@Override
 	public void run() {
 		System.out.println("review thread");
-		reviewsById = fileReviewsById.load(fileNameReviewsById);
+		reviewsById = (HashMap<Integer, List<Review>>) fileReviewsById.load(fileNameReviewsById);
 
 	}
 
