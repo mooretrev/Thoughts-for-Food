@@ -20,6 +20,17 @@ public class Recipe implements Serializable, Comparator<Recipe>{
 	private int numInstructions;
 	private List<String> instructions;
 	
+	
+	
+	public Recipe(String name) {
+		super();
+		this.name = name;
+	}
+
+	public Recipe() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Boolean hasIngredent(String ingred) {
 		for(String i: ingredients) {
 			if(i.equals(ingred)) {
@@ -85,10 +96,11 @@ public class Recipe implements Serializable, Comparator<Recipe>{
 	}
 	@Override
 	public String toString() {
-		return "Recipe [id=" + id + ", name=" + name + ", description=" + description + ", cookTime=" + cookTime
-				+ ", tags=" + tags + ", numIngredients=" + numIngredients + ", ingredients=" + ingredients
-				+ ", numInstructions=" + numInstructions + ", instructions=" + instructions + "]";
-	}
+//		return "Recipe [id=" + id + ", name=" + name + ", description=" + description + ", cookTime=" + cookTime
+//				+ ", tags=" + tags + ", numIngredients=" + numIngredients + ", ingredients=" + ingredients
+//				+ ", numInstructions=" + numInstructions + ", instructions=" + instructions + "]";
+		return "Recipe [name=" + name +"]";
+		}
 
 	@Override
 	public int compare(Recipe o1, Recipe o2) {

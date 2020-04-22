@@ -32,7 +32,7 @@
 //		FileObject fileObject = new FileObject();
 //		List<Recipe> recipes = (List<Recipe>) fileObject.load("recipes");
 //		
-//		RecipeResults panel = new RecipeResults(recipes, null);
+//		RecipeResults panel = new RecipeResults(recipes, data);
 //		
 //		frame.add(panel);
 //		

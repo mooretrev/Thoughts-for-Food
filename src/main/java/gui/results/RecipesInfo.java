@@ -2,6 +2,7 @@ package gui.results;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -18,6 +19,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.table.TableCellRenderer;
+
 import static javax.swing.ScrollPaneConstants.*;
 
 
@@ -54,7 +57,7 @@ public class RecipesInfo extends JFrame {
 		
 		
 		
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		this.pack();
 		this.setLocationRelativeTo(null);
@@ -213,13 +216,12 @@ public class RecipesInfo extends JFrame {
 		c.weighty = 2;
 
 		c.ipadx = 10;
-		
+				
 		JScrollPane pane = new JScrollPane(table);
 		panel.add(pane, c);
 		
 
 	}
-	
-	
-
 }
+
+
