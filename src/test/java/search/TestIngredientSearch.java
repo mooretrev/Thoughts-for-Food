@@ -25,9 +25,6 @@ class TestIngredientSearch {
 		
 		IngredientSearch search = new IngredientSearch(data);
 		System.out.println(search.search("chicken,onion"));
-		
-	
-		
 	}
 	
 	HashMap<Integer, Recipe>  makeRecipes() {
