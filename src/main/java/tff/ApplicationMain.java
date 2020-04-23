@@ -27,7 +27,7 @@ public class ApplicationMain {
 		Window window = new Window("Thought for Food", data);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setVisible(true);
-
+		
 	}
 
 }
