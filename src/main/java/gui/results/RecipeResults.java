@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -27,9 +28,22 @@ public class RecipeResults extends JPanel {
 		this.data = data;
 		this.setLayout(new GridBagLayout());
 		c = new GridBagConstraints();
-		//		addComponents();
-		addTableComponets();
+		if(recipes == null) {
+			noResutlts();
+		}else {
+			addTableComponets();
+		}
 		this.updateUI();
+	}
+
+	void noResutlts() {
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 1;
+		c.weighty = 1;		
+		c.gridx = 0;
+		c.gridy = 0;
+		JLabel label = new JLabel("No results found");
+		this.add(label, c);
 	}
 
 	void addComponents(){
@@ -116,6 +130,6 @@ public class RecipeResults extends JPanel {
 		this.add(pane, c);
 
 
-	}
+	} 
 
 }
