@@ -4,18 +4,18 @@ import java.util.HashMap;
 import java.util.List;
 
 import containers.Recipe;
-import index.FileHashMap;
+import index.FileObject;
 
 public class LoadTimeThread extends Thread {
 	public HashMap<Integer, List<Recipe>> recipeByTime;
-	private FileHashMap<Integer, List<Recipe>>  fileTime = new FileHashMap<Integer, List<Recipe>> ();
+	private FileObject  fileTime = new FileObject ();
 	private String fileNameReviewsById = "RecipeByTime";
 	
 	
 	@Override
 	public void run() {
 		System.out.println("Time thread");
-		recipeByTime = fileTime.load(fileNameReviewsById);
+		recipeByTime = (HashMap<Integer, List<Recipe>>) fileTime.load(fileNameReviewsById);
 
 	}
 

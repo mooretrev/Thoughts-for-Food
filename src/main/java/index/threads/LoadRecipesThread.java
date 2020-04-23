@@ -3,18 +3,18 @@ package index.threads;
 import java.util.HashMap;
 
 import containers.Recipe;
-import index.FileHashMap;
+import index.FileObject;
 
 public class LoadRecipesThread extends Thread{
 	
 	public HashMap<Integer, Recipe> recipeById;
-	private FileHashMap<Integer, Recipe> fileRecipeById = new FileHashMap<Integer, Recipe>();
+	private FileObject fileRecipeById = new FileObject();
 	private String fileNameRecipeById = "RecipeById";
 	
 	@Override
 	public void run() {
 		System.out.println("recipes thread");
-		recipeById = fileRecipeById.load(fileNameRecipeById);
+		recipeById = (HashMap<Integer, Recipe>) fileRecipeById.load(fileNameRecipeById);
 
 	}
 

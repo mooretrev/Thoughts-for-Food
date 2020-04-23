@@ -3,12 +3,12 @@ package index.threads;
 import java.util.List;
 
 import containers.Review;
-import index.FileHashMap;
+import index.FileObject;
 import index.IndexReviews;
 
 public class SaveReviewsThread extends Thread{
 	
-	private FileHashMap<Integer, List<Review>> fileReviewsById = new FileHashMap<Integer, List<Review>>();
+	private FileObject fileReviewsById = new FileObject();
 	private String fileNameReviewsById = "ReviewById";
 	
 	@Override

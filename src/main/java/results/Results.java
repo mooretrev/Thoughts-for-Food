@@ -32,4 +32,11 @@ public class Results {
 
 	}
 
+	@Override
+	public String toString() {
+		return "Results [recipes=" + recipes + "]";
+	}
+	
+	
+
 }

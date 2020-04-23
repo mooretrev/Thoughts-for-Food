@@ -19,7 +19,6 @@ class TestResults {
 	private Results results;
 	
 	public TestResults() {
-		// TODO Auto-generated constructor stub
 		list = new ArrayList<Recipe>();
 		
 		r1 = new Recipe();

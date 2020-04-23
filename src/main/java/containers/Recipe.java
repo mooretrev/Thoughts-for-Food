@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Recipe implements Serializable, Comparator<Recipe>{
+	
 	/**
 	 * 
 	 */
@@ -19,7 +20,21 @@ public class Recipe implements Serializable, Comparator<Recipe>{
 	private List<String> ingredients;
 	private int numInstructions;
 	private List<String> instructions;
+
+	public Recipe() {
+		// TODO Auto-generated constructor stub
+	}
 	
+	public Recipe(List<String> ingredients) {
+		super();
+		this.ingredients = ingredients;
+	}
+	
+	public Recipe(String name) {
+		super();
+		this.name = name;
+	}
+
 	public Boolean hasIngredent(String ingred) {
 		for(String i: ingredients) {
 			if(i.equals(ingred)) {
@@ -88,7 +103,7 @@ public class Recipe implements Serializable, Comparator<Recipe>{
 		return "Recipe [id=" + id + ", name=" + name + ", description=" + description + ", cookTime=" + cookTime
 				+ ", tags=" + tags + ", numIngredients=" + numIngredients + ", ingredients=" + ingredients
 				+ ", numInstructions=" + numInstructions + ", instructions=" + instructions + "]";
-	}
+		}
 
 	@Override
 	public int compare(Recipe o1, Recipe o2) {

@@ -22,7 +22,7 @@ class TestIndexRecipes {
 	
 	@Test
 	void testSplitArray() {
-		String str = "['preheat oven', 'press doubt into the pan ', 'put in oven']";
+		String str = "['2', 'preheat oven', 'press doubt into the pan ', 'put in oven']";
 		IndexRecipes index = new IndexRecipes();
 		ArrayList<String> res = index.splitArray(str);
 		ArrayList<String> ans = new ArrayList<String>();

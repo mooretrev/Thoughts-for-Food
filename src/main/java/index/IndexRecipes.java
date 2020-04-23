@@ -39,9 +39,9 @@ public class IndexRecipes {
 					recipe.setNumIngredients(Integer.parseInt(data.get(C.numIngredents.ordinal())));
 					recipe.setIngredients(splitArray(data.get(C.ingredents.ordinal())));
 					map.put(recipe.getId(), recipe);
-					
+
 					System.out.println("R" + recipe.getId());
-					
+
 					if(recipe.getId() == 298509) {
 						csvReader.close();
 						System.out.println("reciped done indexing");
@@ -64,26 +64,43 @@ public class IndexRecipes {
 		}
 
 
-		for (int i = 0; i < words.size(); ++i) {
+
+		for (int i = words.size() - 1; i >= 0; --i) {
 			String temp = words.get(i);
 			temp = temp.replace("'", "");
 			temp = temp.replace("[", "");
 			temp = temp.replace("]", "");
 
+			if(isNumeric(temp)) {
+				words.remove(i);
+			}else {
+				if(temp.length() >= 1 && temp.charAt(0) == ' ') {
+					temp = temp.substring(1);
+				}
 
-			if(temp.length() >= 1 && temp.charAt(0) == ' ') {
-				temp = temp.substring(1);
+				if(temp.length() >= 1 && temp.charAt(temp.length() - 1) == ' ') {
+					temp = temp.substring(0, temp.length() - 1);
+				}
+
+
+				words.set(i, temp);	
 			}
 
-			if(temp.length() >= 1 && temp.charAt(temp.length() - 1) == ' ') {
-				temp = temp.substring(0, temp.length() - 1);
-			}
-
-
-			words.set(i, temp);			
 		}
 
 		return words;
+	}
+
+	public static boolean isNumeric(String strNum) {
+		if (strNum == null) {
+			return false;
+		}
+		try {
+			double d = Double.parseDouble(strNum);
+		} catch (Exception nfe) {
+			return false;
+		}
+		return true;
 	}
 
 	enum C 
