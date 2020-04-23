@@ -8,3 +8,4 @@ index_data/
 Build/
 /.gradle/
 /build/
+.vscode/settings.json
