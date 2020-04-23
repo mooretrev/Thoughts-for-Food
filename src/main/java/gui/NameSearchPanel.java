@@ -101,9 +101,7 @@ public class NameSearchPanel extends JPanel {
             	remove(recipeResults);
             	System.out.println("removed");
             }
-           
-
-            
+          
             NameSearch search = new NameSearch(data);
             Results results = search.search(nameString);
             recipeResults = new RecipeResults(results.getRecipes(), data);
