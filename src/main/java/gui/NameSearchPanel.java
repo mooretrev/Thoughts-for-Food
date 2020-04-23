@@ -41,14 +41,14 @@ public class NameSearchPanel extends JPanel {
         searchButton.addActionListener(new searchBtnListener(nameSearchBar));
         
         // Style gui objects
-        Font courierTitle = new Font("Courier", Font.BOLD, 27);
+        Font courierTitle = new Font("arial", Font.BOLD, 27);
         titleLabel.setPreferredSize(new Dimension(530, 530));
         titleLabel.setFont(courierTitle);
 
-        Font courierInstr = new Font("Courier", Font.PLAIN, 19);
+        Font courierInstr = new Font("arial", Font.PLAIN, 19);
         instrLabel.setFont(courierInstr);
 
-        Font courierBold = new Font("Courier", Font.BOLD, 20);
+        Font courierBold = new Font("arial", Font.BOLD, 20);
         searchButton.setFont(courierBold);
 
         // Set the Layout for the Panel
