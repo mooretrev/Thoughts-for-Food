@@ -24,7 +24,7 @@ class TestIngredientSearch {
 		data.recipeByIngredent = index.index();
 		
 		IngredientSearch search = new IngredientSearch(data);
-		System.out.println(search.search(Arrays.asList("chicken","onion")));
+		System.out.println(search.search("chicken,onion"));
 		
 	
 		
