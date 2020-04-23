@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
+import java.util.*;
+
 import containers.Data;
 import containers.Recipe;
 import results.Results;
@@ -27,36 +29,50 @@ public class IngredientSearch extends AbstractSearch {
 		List<List<Recipe>> allRecipes = new Vector();
 		String[] queryList;
 		queryList = query.split(",");
+		
+		for(int i = 0; i < queryList.length; i++){
+			queryList[i] = queryList[i].trim();
+		}
+
+		
 		//add each list of recipes to allRecipes
 		for(String ingredient : queryList){
 			allRecipes.add(recipesByIngredient.get(ingredient));
 		}
-		//find union of all lists in allRecipes
-		Map<Recipe, Integer> recipeFreqs = new HashMap<Recipe, Integer>();
-		for(List<Recipe> list : allRecipes){
-			for(Recipe recipe : list){
-				if(recipeFreqs.containsKey(recipe))
-					//add one to frequency if already in hashmap
-					recipeFreqs.replace(recipe, recipeFreqs.get(recipe) + 1);
-				else{
-					//else make freq = 1
-					recipeFreqs.put(recipe, 1);
-				}
 
+		//find recipes with all three ingredients
+		List<Recipe> finalr = new Vector<>();
+		for(List<Recipe> r : allRecipes){
+			for(Recipe c : r){
+				int count = 0;
+				List<String> ing = c.getIngredients();
+				for(String q : queryList){
+					if(ing.contains(q))
+						count = count +1;
+				}
+				if(count == queryList.length)
+					finalr.add(c);
 			}
+		}
+
+		//find union of all lists in allRecipes
+		Map<Recipe, Integer> numIngr = new HashMap<Recipe, Integer>();
+		for(Recipe recipe : finalr){
+			numIngr.put(recipe,recipe.getNumIngredients());
+
 		}
 		//order recipefreqs by freq descending order
 		LinkedHashMap<Recipe, Integer> sortedRecipes = new LinkedHashMap<>();
-		recipeFreqs.entrySet()
+		numIngr.entrySet()
 			.stream()
-			.sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())) 
+			.sorted(Map.Entry.comparingByValue()) 
 			.forEachOrdered(x -> sortedRecipes.put(x.getKey(), x.getValue()));
 
 		List<Recipe> finalRecipes = new Vector<>();
 		for(Recipe rec : sortedRecipes.keySet()){
 			finalRecipes.add(rec);
 		}
-
+		System.out.println("LENTH: " + finalRecipes.size());
 		return new Results(finalRecipes);
 	}
 
