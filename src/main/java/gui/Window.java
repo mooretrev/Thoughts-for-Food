@@ -57,10 +57,11 @@ public class Window extends JFrame {
 		setVisible(true);
 
 		// Prevent the window from being resized
-		setResizable(false);
+//		setResizable(false);
 		
 		//super(title);
 		//nameSearch = new NameSearch(data);
+		this.data = data;
 		
 	}
 
@@ -138,7 +139,7 @@ public class Window extends JFrame {
 	private class continueBtnListener implements ActionListener {
         public void actionPerformed(ActionEvent s) {
             // Build the panel and add it to the frame.
-            tab = new TabbedPanel();
+            tab = new TabbedPanel(data);
             
             getContentPane().add(tab.tabs);
             tab.tabs.setSelectedIndex(0);  // open to tab 1

@@ -8,6 +8,8 @@ import java.awt.*;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import containers.Data;
+
 
 class TabbedPanel extends JPanel {
     private static final long serialVersionUID = 1L;
@@ -15,15 +17,17 @@ class TabbedPanel extends JPanel {
     NameSearchPanel namePanel;
     IngredientsSearchPanel ingredientsPanel;
     TimeSearchPanel timePanel;
+    Data data;
     
 
-    TabbedPanel() {
+    TabbedPanel(Data data) {
         // Setting the JTabbedPane Position and Layout as Wrap
+    	this.data = data;
         tabs = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.WRAP_TAB_LAYOUT);
 
         tabs.setBackground(new Color(255,255,255));
 
-        namePanel = new NameSearchPanel();
+        namePanel = new NameSearchPanel(data);
         ingredientsPanel = new IngredientsSearchPanel();
         timePanel = new TimeSearchPanel();
 

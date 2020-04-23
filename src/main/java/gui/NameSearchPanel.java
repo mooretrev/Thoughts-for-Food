@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import containers.Data;
+import gui.results.RecipeResults;
 import results.Results;
 import search.NameSearch;
 
@@ -29,9 +30,10 @@ public class NameSearchPanel extends JPanel {
 
     private Data data;
     private NameSearch nameSearch;
+    private RecipeResults recipeResults = null;
 
-    NameSearchPanel() {
-
+    NameSearchPanel(Data data) {
+    	this.data = data;
         titleLabel = new JLabel("Name Search");
         instrLabel = new JLabel("Search for recipies by name below:");
         nameSearchBar = new JTextField(10);
@@ -91,15 +93,29 @@ public class NameSearchPanel extends JPanel {
         }
         
         public void actionPerformed(ActionEvent s) {
+        	System.out.println("button press");
             String nameString;
             nameString = nameQuery.getText();
+            
+            if(recipeResults != null) {
+            	remove(recipeResults);
+            	System.out.println("removed");
+            }
+           
 
             
             NameSearch search = new NameSearch(data);
             Results results = search.search(nameString);
-            RecipeResult recipeResults = new RecipeResult(results.getRecipes(), data);
-            JFrame newFrame = new JFrame();
-            newFrame.setVisible(true);
+            recipeResults = new RecipeResults(results.getRecipes(), data);
+            GridBagConstraints gbc = new GridBagConstraints();
+            gbc.fill = GridBagConstraints.BOTH;
+            gbc.insets = new Insets(10, 10, 10, 10);
+            gbc.gridx = 0;
+            gbc.gridy = 4;
+            gbc.weighty = 6;
+            gbc.weightx = 7;
+            add(recipeResults, gbc);
+            updateUI();           
         }
     }
 }
