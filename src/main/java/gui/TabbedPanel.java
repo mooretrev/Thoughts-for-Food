@@ -28,7 +28,7 @@ class TabbedPanel extends JPanel {
         tabs.setBackground(new Color(255,255,255));
 
         namePanel = new NameSearchPanel(data);
-        ingredientsPanel = new IngredientsSearchPanel();
+        ingredientsPanel = new IngredientsSearchPanel(data);
         timePanel = new TimeSearchPanel();
 
         Font courierExclude = new Font("arial", Font.PLAIN, 15);

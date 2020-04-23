@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -57,15 +56,12 @@ public class NameSearchPanel extends JPanel {
 
         GridBagConstraints gbc = new GridBagConstraints();
 
-        //gbc.gridwidth = GridBagConstraints.REMAINDER;
-        //gbc.anchor = GridBagConstraints.NORTH;
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.ipady = 80;
         add(titleLabel, gbc);
-
-        //gbc.anchor = GridBagConstraints.SOUTH;
+      
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0;
         gbc.gridy = 1;
