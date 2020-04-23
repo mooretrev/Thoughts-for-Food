@@ -113,7 +113,7 @@ public class IngredientsSearchPanel extends JPanel {
             gbc.fill = GridBagConstraints.BOTH;
             gbc.insets = new Insets(10, 10, 10, 10);
             gbc.gridx = 0;
-            gbc.gridy = 4;
+            gbc.gridy = 5;
             gbc.weighty = 6;
             gbc.weightx = 7;
             add(recipeResults, gbc);
