@@ -1,6 +1,8 @@
 package gui;
 
 import java.awt.Font;
+import javax.swing.*;
+import java.awt.*;
 
 // Needed for Swing classes
 import javax.swing.JPanel;
@@ -19,11 +21,13 @@ class TabbedPanel extends JPanel {
         // Setting the JTabbedPane Position and Layout as Wrap
         tabs = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.WRAP_TAB_LAYOUT);
 
+        tabs.setBackground(new Color(255,255,255));
+
         namePanel = new NameSearchPanel();
         ingredientsPanel = new IngredientsSearchPanel();
         timePanel = new TimeSearchPanel();
 
-        Font courierExclude = new Font("Courier", Font.PLAIN, 15);
+        Font courierExclude = new Font("arial", Font.PLAIN, 15);
         tabs.setFont(courierExclude);
 
         // Adding user defined pannels to JTabbedPane
