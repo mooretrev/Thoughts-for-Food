@@ -64,7 +64,7 @@ public class Window extends JFrame {
         // create GUI objects
         mainLabel = new JLabel("Welcome!");
 		instrLabel1 = new JLabel("    You can search different recipies based on the ingredients you have, ");
-		instrLabel2 = new JLabel("    the name of the recipe, or how lon it will take.");
+		instrLabel2 = new JLabel("    the name of the recipe, or how long it will take.");
         continueButton = new JButton("Continue");
         
         // style GUI objects
